@@ -48,6 +48,7 @@
             this.gracz1.Size = new System.Drawing.Size(20, 150);
             this.gracz1.TabIndex = 0;
             this.gracz1.TabStop = false;
+            this.gracz1.Click += new System.EventHandler(this.gracz1_Click);
             // 
             // pilka
             // 
@@ -57,6 +58,7 @@
             this.pilka.Size = new System.Drawing.Size(15, 15);
             this.pilka.TabIndex = 1;
             this.pilka.TabStop = false;
+            this.pilka.Click += new System.EventHandler(this.pilka_Click);
             // 
             // gracz2
             // 
@@ -66,10 +68,13 @@
             this.gracz2.Size = new System.Drawing.Size(20, 150);
             this.gracz2.TabIndex = 2;
             this.gracz2.TabStop = false;
+            this.gracz2.Click += new System.EventHandler(this.gracz2_Click);
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // punkty1
             // 
@@ -82,6 +87,7 @@
             this.punkty1.Size = new System.Drawing.Size(32, 32);
             this.punkty1.TabIndex = 3;
             this.punkty1.Text = "0";
+            this.punkty1.Click += new System.EventHandler(this.punkty1_Click);
             // 
             // punkty2
             // 
@@ -94,6 +100,7 @@
             this.punkty2.Size = new System.Drawing.Size(32, 32);
             this.punkty2.TabIndex = 4;
             this.punkty2.Text = "0";
+            this.punkty2.Click += new System.EventHandler(this.punkty2_Click);
             // 
             // Form1
             // 
@@ -107,7 +114,10 @@
             this.Controls.Add(this.pilka);
             this.Controls.Add(this.gracz1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GRA";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.gracz1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pilka)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gracz2)).EndInit();
