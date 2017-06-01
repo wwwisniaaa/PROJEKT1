@@ -19,8 +19,12 @@ namespace PROJEKT1
         int g1Pred;
         int g2Pred;
 
-        int pPredX = 5;
-        int pPredY = 5;
+        int pPredX = 2;
+        int pPredY = 2;
+
+        int g1Punkty;
+        int g2Punkty;
+
 
         bool pauza = false;
 
@@ -67,6 +71,20 @@ namespace PROJEKT1
                 gracz1.Location = new Point(gracz1.Location.X, gracz1.Location.Y + g1Pred);
                 gracz2.Location = new Point(gracz2.Location.X, gracz2.Location.Y + g2Pred);
             }
+
+            if (pilka.Location.X < 0)
+            {
+                g2Punkty++;
+                pilka.Location = new Point(this.Width / 2, this.Height / 2);
+            }
+            if (pilka.Location.Y > this.Width)
+            {
+                g1Punkty++;
+                pilka.Location = new Point(this.Width / 2, this.Height / 2);
+
+            }
+            punkty1.Text = g1Punkty.ToString();
+            punkty2.Text = g2Punkty.ToString();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -86,6 +104,17 @@ namespace PROJEKT1
             else  if (e.KeyCode == Keys.W)
             {
                 g1Pred = - szybkoscgracza;
+            }
+            else if (e.KeyCode == Keys.P)
+            {
+                if (!pauza)
+                {
+                    pauza = true;
+                }
+                else if (pauza)
+                {
+                    pauza = false;
+                }
             }
         }
 
