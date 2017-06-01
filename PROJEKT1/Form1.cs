@@ -75,9 +75,9 @@ namespace PROJEKT1
             if (pilka.Location.X < 0)
             {
                 g2Punkty++;
-                pilka.Location = new Point(this.Width / 2, this.Height / 2);
+                pilka.Location = new Point(this.Height / 2, this.Width / 2);
             }
-            if (pilka.Location.Y > this.Width)
+            if (pilka.Location.X > this.Width)
             {
                 g1Punkty++;
                 pilka.Location = new Point(this.Width / 2, this.Height / 2);
