@@ -75,7 +75,7 @@ namespace PROJEKT1
             if (pilka.Location.X < 0)
             {
                 g2Punkty++;
-                pilka.Location = new Point(this.Height / 2, this.Width / 2);
+                pilka.Location = new Point(this.Width / 2, this.Height / 2);
             }
             if (pilka.Location.X > this.Width)
             {
@@ -83,6 +83,17 @@ namespace PROJEKT1
                 pilka.Location = new Point(this.Width / 2, this.Height / 2);
 
             }
+
+            if (pilka.Location.Y > gracz2.Location.Y && pilka.Location.Y + pilka.Height < gracz2.Location.Y + gracz2.Height && pilka.Location.X + pilka.Width > gracz2.Location.X)
+            {
+                pPredX *= -1;
+            }
+
+            if (pilka.Location.Y > gracz1.Location.Y && pilka.Location.Y + pilka.Height < gracz1.Location.Y + gracz1.Height && pilka.Location.X < gracz1.Location.X + gracz1.Width)
+            {
+                pPredX *= -1;
+            }
+
             punkty1.Text = g1Punkty.ToString();
             punkty2.Text = g2Punkty.ToString();
         }
