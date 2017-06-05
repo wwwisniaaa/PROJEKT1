@@ -12,9 +12,9 @@ namespace PROJEKT1
 {
     public partial class Form1 : Form
     {
-
+        
         int szybkoscgracza = 7;
-        int szybkoscpilki;
+       
 
         int g1Pred;
         int g2Pred;
@@ -35,8 +35,62 @@ namespace PROJEKT1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            timer1.Stop();
 
+            Form okno = new Form();
+            okno.Width = 300;
+            okno.Height = 300;
+            okno.Text = "Imiona graczy";
+            okno.BackColor = Color.Beige;
+            okno.MaximumSize = new System.Drawing.Size(300, 300);
+            okno.MinimumSize = new System.Drawing.Size(300, 300);
+            okno.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+
+
+            Label etykieta1 = new Label();
+            etykieta1.Text = "Imię pierwszego gracza";
+            etykieta1.Font = new System.Drawing.Font("Arial", 5, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            etykieta1.Location = new Point(10, 10);
+            etykieta1.Width = 300;
+            etykieta1.Height = 30;
+
+            TextBox pole_tekstowe1 = new TextBox();
+            pole_tekstowe1.Width = 200;
+            pole_tekstowe1.Location = new Point(10, 50);
+
+            Label etykieta2 = new Label();
+            etykieta2.Text = "Imię drugiego gracza";
+            etykieta2.Font = new System.Drawing.Font("Arial", 5, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            etykieta2.Location = new Point(10, 100);
+            etykieta2.Width = 300;
+            etykieta2.Height = 30;
+
+            TextBox pole_tekstowe2 = new TextBox();
+            pole_tekstowe2.Width = 200;
+            pole_tekstowe2.Location = new Point(10, 150);
+
+            Button przycisk = new Button();
+            przycisk.Width = 100;
+            przycisk.Height = 35;
+            przycisk.Location = new Point(10, 200);
+            przycisk.Text = "GRAJ";
+            przycisk.Font = new System.Drawing.Font("Arial", 6, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            przycisk.BackColor = Color.HotPink;
+            przycisk.DialogResult = DialogResult.OK;
+
+
+            okno.Controls.Add(etykieta1);
+            okno.Controls.Add(pole_tekstowe1);
+            okno.Controls.Add(etykieta2);
+            okno.Controls.Add(pole_tekstowe2);
+            okno.Controls.Add(przycisk);
+
+            okno.ShowDialog();
+
+            timer1.Start();
         }
+
+        
 
         private void punkty1_Click(object sender, EventArgs e)
         {

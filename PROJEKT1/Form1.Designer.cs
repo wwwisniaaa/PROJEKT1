@@ -113,6 +113,8 @@
             this.Controls.Add(this.gracz2);
             this.Controls.Add(this.pilka);
             this.Controls.Add(this.gracz1);
+            this.MaximumSize = new System.Drawing.Size(450, 650);
+            this.MinimumSize = new System.Drawing.Size(450, 650);
             this.Name = "Form1";
             this.Text = "GRA";
             this.Load += new System.EventHandler(this.Form1_Load);
