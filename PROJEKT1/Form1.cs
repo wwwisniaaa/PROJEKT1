@@ -25,16 +25,14 @@ namespace PROJEKT1
         int g1Punkty;
         int g2Punkty;
 
+        TextBox pole_tekstowe1 = new TextBox();
+        TextBox pole_tekstowe2 = new TextBox();
 
         bool pauza = false;
 
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
             timer1.Stop();
 
             Form okno = new Form();
@@ -54,7 +52,7 @@ namespace PROJEKT1
             etykieta1.Width = 300;
             etykieta1.Height = 30;
 
-            TextBox pole_tekstowe1 = new TextBox();
+            
             pole_tekstowe1.Width = 200;
             pole_tekstowe1.Location = new Point(10, 50);
 
@@ -65,7 +63,7 @@ namespace PROJEKT1
             etykieta2.Width = 300;
             etykieta2.Height = 30;
 
-            TextBox pole_tekstowe2 = new TextBox();
+            
             pole_tekstowe2.Width = 200;
             pole_tekstowe2.Location = new Point(10, 150);
 
@@ -88,6 +86,11 @@ namespace PROJEKT1
             okno.ShowDialog();
 
             timer1.Start();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
 
         
@@ -137,6 +140,50 @@ namespace PROJEKT1
                 pilka.Location = new Point(this.Width / 2, this.Height / 2);
 
             }
+
+            
+
+            if (g1Punkty == 5 || g2Punkty ==5)
+            {
+                Form okno1 = new Form();
+                okno1.Width = 300;
+                okno1.Height = 300;
+                okno1.Text = "Koniec Gry";
+                okno1.BackColor = Color.Beige;
+                okno1.MaximumSize = new System.Drawing.Size(300, 300);
+                okno1.MinimumSize = new System.Drawing.Size(300, 300);
+                okno1.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+                timer1.Stop();
+
+                Label etykieta3 = new Label();
+                etykieta3.Text = "Zwycięzca:";
+                etykieta3.Font = new System.Drawing.Font("Arial", 8, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+                etykieta3.Location = new Point(10, 50);
+                etykieta3.Width = 300;
+                etykieta3.Height = 40;
+                etykieta3.ForeColor = Color.Black;
+
+                Label etykieta4 = new Label();
+                if (g1Punkty == 5)
+                {
+                    etykieta4.Text = pole_tekstowe1.Text;
+                }
+                else if (g2Punkty == 5)
+                {
+                    etykieta4.Text = pole_tekstowe2.Text;
+                }
+
+                etykieta4.Font = new System.Drawing.Font("Arial", 8, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+                etykieta4.Location = new Point(10, 100);
+                etykieta4.Width = 300;
+                etykieta4.Height = 40;
+                etykieta4.ForeColor = Color.DarkViolet;
+
+                okno1.Controls.Add(etykieta3);
+                okno1.Controls.Add(etykieta4);
+                okno1.ShowDialog();
+            }
+
 
             if (pilka.Location.Y > gracz2.Location.Y && pilka.Location.Y + pilka.Height < gracz2.Location.Y + gracz2.Height && pilka.Location.X + pilka.Width > gracz2.Location.X)
             {
