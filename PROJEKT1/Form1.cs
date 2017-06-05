@@ -94,6 +94,16 @@ namespace PROJEKT1
                 pPredX *= -1;
             }
 
+            if (pilka.Location.Y < 0 )
+            {
+                pPredY *= -1;
+            }
+
+            if(pilka.Location.Y + 5*(pilka.Height) > this.Height)
+            {
+                pPredY *= -1;
+            }
+
             punkty1.Text = g1Punkty.ToString();
             punkty2.Text = g2Punkty.ToString();
         }
